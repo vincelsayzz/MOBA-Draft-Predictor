@@ -36,36 +36,55 @@ Backend: Python, FastAPI, Uvicorn. Designed for deployment on Render.
 
 Machine Learning: Scikit-Learn (Logistic Regression), Pandas (Data Cleaning & One-Hot Encoding), Joblib (Model Serialization).
 
-📂 Project Structure
-Plaintext
-Dota2-Draft-Predictor/
-├── data/          Phase 1: Raw Kaggle dataset + data preparation & model training scripts
-├── backend/       Phase 2: FastAPI server, loads the serialized .pkl ML models
-└── frontend/      Phase 3: React (Vite) UI, fully integrated with backend & external APIs
-🚀 Running It Locally
-To run this project end-to-end on your local machine, you will need two terminal windows.
+Markdown
+# 🎮 Dota2 Draft Predictor
 
-Terminal 1 — Backend
+An end-to-end machine learning application designed to predict the winner of Dota 2 matches based on team compositions. This project integrates a FastAPI backend with a React (Vite) frontend to provide real-time draft analysis.
+
+---
+
+## 📂 Project Structure
+
+Dota2-Draft-Predictor/
+├── data/           # Phase 1: Raw Kaggle dataset + data preparation & model training scripts
+├── backend/        # Phase 2: FastAPI server, loads the serialized .pkl ML models
+└── frontend/       # Phase 3: React (Vite) UI, fully integrated with backend & external APIs
+🛠 Prerequisites
+Ensure you have the following installed on your machine:
+
+Python 3.10+ (for the backend)
+
+Node.js 18+ (for the frontend)
+
+pip and npm (or yarn/pnpm)
+
+🚀 Running It Locally
+To run this project end-to-end, you will need two terminal windows open simultaneously.
+
+Terminal 1: Backend
+The backend serves the ML model predictions via FastAPI.
 
 Bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-Backend runs at http://localhost:8000
+Access: http://localhost:8000
 
-Terminal 2 — Frontend
+Docs: View auto-generated Swagger UI at http://localhost:8000/docs
+
+Terminal 2: Frontend
+The frontend provides the user interface for inputting hero drafts.
 
 Bash
 cd frontend
 npm install
 npm run dev
-Frontend runs at http://localhost:5173
+Access: http://localhost:5173
 
 📡 API Contract
-If you want to interact directly with the FastAPI backend, here is the expected schema.
+The backend exposes a prediction endpoint to process draft data.
 
 POST /predict
-
 Request Body:
 
 JSON
@@ -76,7 +95,11 @@ JSON
   "r_registered": 5,
   "d_registered": 5
 }
-(Note: game_mode uses official Dota API integers, e.g., 22 for Ranked All Pick. r_registered and d_registered accept integers 0-5 representing the number of public/registered profiles on the team).
+Configuration Notes:
+
+game_mode: Use official Dota 2 API integers (e.g., 22 for Ranked All Pick).
+
+r_registered/d_registered: Integer 0-5 representing the number of public/registered profiles on the team.
 
 Response:
 
@@ -85,3 +108,11 @@ JSON
   "winner": "Radiant", 
   "radiant_probability": 65.4 
 }
+⚙️ Development Notes
+Data Models: Ensure your serialized .pkl model files are located in the backend/models/ directory before running the server.
+
+Environment Variables: If you change the backend port, ensure you update the VITE_API_URL in the frontend environment configuration.
+
+Dependencies: Regularly update your dependencies using pip freeze > requirements.txt or npm outdated to ensure compatibility.
+
+This project is built for educational purposes and performance analysis.
