@@ -1,7 +1,5 @@
 Dota 2 Draft Predictor & Analytics Engine
-Live Demo: 🔗 Insert your Vercel Link Here
-
-Backend API: 🔗 Insert your Render Link Here
+Live Demo: 🔗 https://dota2-draft-predictor.vercel.app/
 
 A full-stack, machine-learning-powered web application that predicts the likely winner of a Dota 2 match based on a 5v5 hero draft. Beyond simple win/loss prediction, it acts as a comprehensive drafting tool by integrating live professional meta data and analyzing team composition synergies.
 
