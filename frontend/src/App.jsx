@@ -164,7 +164,7 @@ function App() {
         game_mode: parseInt(gameMode), r_registered: parseInt(rRegistered), d_registered: parseInt(dRegistered)
       };
 
-      const response = await fetch("http://localhost:8000/predict", {
+      const response = await fetch("https://dota2-draft-predictor.onrender.com", {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
       });
       if (!response.ok) throw new Error("Network response was not ok");
