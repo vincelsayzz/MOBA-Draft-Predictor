@@ -12,28 +12,28 @@ const GAMES = [
     path: '/dota2',
     name: 'Dota 2',
     accent: '#66fcf1',
-    logo: '/public/Dota2-logo.webp',
+    logo: '/Dota2-logo.webp',
   },
   {
     id: 'league',
     path: '/league',
     name: 'League of Legends',
     accent: '#e6b44c',
-    logo: '/public/LOL-logo.png',
+    logo: '/LOL-logo.png',
   },
   {
     id: 'hok',
     path: '/hok',
     name: 'Honor of Kings',
     accent: '#d4af37',
-    logo: '/public/Hok-logo.jpg',
+    logo: '/Hok-logo.jpg',
   },
 ]
 
 // frontend/public/images/landing-bg.jpg — drop a background image here
 // with that exact filename. Falls back to the dark solid color below if
 // it's missing, so the page still looks intentional either way.
-const BACKGROUND_IMAGE = '/public/landing-bg.png'
+const BACKGROUND_IMAGE = '/landing-bg.png'
 
 function LandingPage() {
   return (
