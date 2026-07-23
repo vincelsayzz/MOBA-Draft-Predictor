@@ -30,4 +30,4 @@ JSON
 { 
   "winner": "Radiant", 
   "radiant_probability": 65.4 
-}
+}.
