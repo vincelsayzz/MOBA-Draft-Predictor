@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import BackToLanding from '../components/BackToLanding.jsx'
+import { API_BASE_URL } from '../config.js'
 
 const TEAM_SIZE = 5
 const ROLES = ['All', 'Tank', 'Warrior', 'Assassin', 'Mage', 'Farm Lane', 'Support']
@@ -30,7 +31,7 @@ function HokPredictor() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/hok/heroes')
+    fetch(`${API_BASE_URL}/api/hok/heroes`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch heroes')
         return res.json()
@@ -129,7 +130,7 @@ function HokPredictor() {
 
     setPredicting(true)
     try {
-      const response = await fetch('http://localhost:8000/api/hok/predict', {
+      const response = await fetch(`${API_BASE_URL}/api/hok/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

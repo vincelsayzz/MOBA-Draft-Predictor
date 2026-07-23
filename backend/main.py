@@ -16,6 +16,14 @@ from pydantic import BaseModel
 # ==========================================================
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"message": "MOBA Draft Predictor API is running", "status": "ok"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import BackToLanding from '../components/BackToLanding.jsx'
+import { API_BASE_URL } from '../config.js'
 
 const FULL_HERO_POOL = [
   {id:1, name:"Anti-Mage", n:"antimage"}, {id:2, name:"Axe", n:"axe"}, {id:3, name:"Bane", n:"bane"}, {id:4, name:"Bloodseeker", n:"bloodseeker"}, {id:5, name:"Crystal Maiden", n:"crystal_maiden"},
@@ -213,7 +214,7 @@ function DotaPredictor() {
         game_mode: parseInt(gameMode), r_registered: parseInt(rRegistered), d_registered: parseInt(dRegistered)
       };
 
-      const response = await fetch("https://dota2-draft-predictor.onrender.com/predict", {
+      const response = await fetch(`${API_BASE_URL}/api/dota/predict`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
       });
       if (!response.ok) throw new Error("Network response was not ok");

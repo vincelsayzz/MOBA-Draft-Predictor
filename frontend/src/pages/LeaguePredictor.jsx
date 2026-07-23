@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import BackToLanding from '../components/BackToLanding.jsx'
+import { API_BASE_URL } from '../config.js'
 
 const TEAM_SIZE = 5
 const ROLES = ['All', 'Top', 'Jungle', 'Mid', 'ADC', 'Support']
@@ -34,7 +35,7 @@ function LeaguePredictor() {
     setFetchError(false)
 
     // Fetch Champions
-    fetch('http://localhost:8000/api/lol/heroes')
+    fetch(`${API_BASE_URL}/api/lol/heroes`)
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok')
         return res.json()
@@ -51,7 +52,7 @@ function LeaguePredictor() {
       })
 
     // Fetch Leaderboard
-    fetch('http://localhost:8000/api/lol/leaderboard')
+    fetch(`${API_BASE_URL}/api/lol/leaderboard`)
       .then((res) => res.json())
       .then((data) => setLeaderboard(data.slice(0, 17)))
       .catch((err) => console.error('Error fetching leaderboard:', err))
@@ -193,7 +194,7 @@ function LeaguePredictor() {
 
     setPredicting(true)
     try {
-      const response = await fetch('http://localhost:8000/api/lol/predict', {
+      const response = await fetch(`${API_BASE_URL}/api/lol/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
