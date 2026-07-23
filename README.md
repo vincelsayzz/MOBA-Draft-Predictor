@@ -21,13 +21,13 @@ Machine Learning: Scikit-Learn (Logistic Regression), Pandas (Data Cleaning & On
 📂 Project Structure
 Plaintext
 Dota2-Draft-Predictor/
+
 ├── data/          Phase 1: Raw Kaggle dataset + data preparation & model training scripts
+
 ├── backend/       Phase 2: FastAPI server, loads the serialized .pkl ML models
+
 └── frontend/      Phase 3: React (Vite) UI, fully integrated with backend & external APIs
+
 🚀 Running It Locally
+
 To run this project end-to-end on your local machine, you will need two terminal windows.
-JSON
-{ 
-  "winner": "Radiant", 
-  "radiant_probability": 65.4 
-}.
