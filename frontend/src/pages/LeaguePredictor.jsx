@@ -59,7 +59,7 @@ function LeaguePredictor() {
   }
 
   useEffect(() => {
-    document.title = 'LoL Draft Predictor'
+    document.title = 'MOBA Draft Predictor'
     fetchInitialData()
   }, [])
 
